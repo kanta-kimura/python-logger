@@ -1,4 +1,5 @@
 import logging
+import os
 
 import const
 
@@ -7,12 +8,14 @@ def export_log(text: str):
     """ Export log
     """
 
+    logfile_path = os.path.join(os.path.dirname(__file__), const.LOGGER_PATH)
+
     # create logger
     logger = logging.getLogger(const.LOGGER_NAME)
     logger.setLevel(logging.INFO)
 
     # create file handler
-    file_handler = logging.FileHandler(const.LOGGER_PATH)
+    file_handler = logging.FileHandler(logfile_path)
     file_handler.setLevel(logging.INFO)
 
     # create console handler
