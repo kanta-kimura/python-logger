@@ -1,16 +1,18 @@
 import logging
 
+import const
+
 
 def export_log(text: str):
     """ Export log
     """
 
     # create logger
-    logger = logging.getLogger('my_logger')
+    logger = logging.getLogger(const.LOGGER_NAME)
     logger.setLevel(logging.INFO)
 
     # create file handler
-    file_handler = logging.FileHandler('app.log')
+    file_handler = logging.FileHandler(const.LOGGER_PATH)
     file_handler.setLevel(logging.INFO)
 
     # create console handler
